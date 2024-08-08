@@ -55,6 +55,8 @@ public class Aptabase: NSObject {
     ///   - eventName: The name of the event to track.
     ///   - props: Additional given properties.
     public func trackEvent(_ eventName: String, with props: [String: Value] = [:]) {
+        print("⚡️\(eventName) tracked")
+
         guard let codable = toCodableProps(from: props) else {
             return
         }
