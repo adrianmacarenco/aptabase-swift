@@ -28,7 +28,12 @@ let package = Package(
             name: "Aptabase",
             resources: [
                 .copy("PrivacyInfo.xcprivacy")
-            ]),
+            ],
+            swiftSettings: [
+                .define("RELEASE", .when(configuration: .release)),
+                .define("DEBUG", .when(configuration: .debug))
+            ]
+        ),
         .testTarget(
             name: "AptabaseTests",
             dependencies: ["Aptabase"]
