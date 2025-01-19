@@ -42,7 +42,7 @@ public class Aptabase: NSObject {
         let notifications = NotificationCenter.default
         #if os(tvOS) || os(iOS) || os(visionOS)
         notifications.addObserver(self, selector: #selector(startPolling), name: UIApplication.willEnterForegroundNotification, object: nil)
-        notifications.addObserver(self, selector: #selector(stopPolling), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        notifications.addObserver(self, selector: #selector(stopPolling), name: UIScene.willDeactivateNotification, object: nil)
         #elseif os(macOS)
         notifications.addObserver(self, selector: #selector(startPolling), name: NSApplication.didBecomeActiveNotification, object: nil)
         notifications.addObserver(self, selector: #selector(stopPolling), name: NSApplication.willTerminateNotification, object: nil)
